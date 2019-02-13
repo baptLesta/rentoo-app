@@ -18,6 +18,12 @@ export default function(state, action) {
         isLoading: false
       });
 
+    case types.CREATE_PLAYER:
+      return Object.assign({}, state, {
+        players: [...state.players, { name: action.name, creationIsPending: true }],
+        isLoading: false
+      });
+
     default:
       return state;
   }

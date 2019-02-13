@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getPlayers } from '../../actions';
+import { getPlayers, boundCreatePlayer as createPlayer } from '../../actions';
 
 // Import custom components
 import Dashboard from 'components/dashboard/DashBoard';
@@ -15,13 +15,14 @@ class DashboardContainer extends Component {
 
   render() {
     const {
-      players, isLoading
+      players, isLoading, createPlayer
     } = this.props;
 
     return (
       <Dashboard
         players={players}
         isLoading={isLoading}
+        createPlayer={createPlayer}
       />
     );
   }
@@ -37,5 +38,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getPlayers }
+  { getPlayers, createPlayer }
 )(DashboardContainer);

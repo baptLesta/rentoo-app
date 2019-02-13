@@ -3,8 +3,19 @@ import PropTypes from 'prop-types';
 import css from './styles.scss';
 
 const PlayersTableRaw = props => {
-  return (
-    <tr className={css.component}>
+  let raw;
+
+  if (props.creationIsPending) {
+    raw = <tr className={`${css.component} is-pending`}>
+      <td className='column'>{props.index}</td>
+      <td className='column'>{props.name}</td>
+      <td className='column'></td>
+      <td className='column'></td>
+      <td className='column'></td>
+      <td className='column'></td>
+    </tr>
+  } else {
+    raw = <tr className={css.component}>
       <td className='column'>{props.index}</td>
       <td className='column'>{props.name}</td>
       <td className='column'>{props.win}</td>
@@ -12,7 +23,13 @@ const PlayersTableRaw = props => {
       <td className='column'>{props.winPercent}</td>
       <td className='column'>{props.points}</td>
     </tr>
-  );
+  }
+
+  return raw;
+};
+
+PlayersTableRaw.defaultProps = {
+  creationIsPending: false
 };
 
 export default PlayersTableRaw;

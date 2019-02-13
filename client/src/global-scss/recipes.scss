@@ -1,0 +1,11 @@
+@mixin text-small() {
+  font-weight: 600;
+  color: $color-text;
+  font-size: 1em;
+}
+
+@mixin title-small() {
+  font-weight: 800;
+  color: $color-text;
+  font-size: 1.1em;
+}

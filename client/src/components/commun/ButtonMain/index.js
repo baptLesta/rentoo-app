@@ -6,8 +6,8 @@ import classNames from 'classnames';
 
 class ButtonMain extends Component {
   static propTypes = {
-    label: propTypes.string.required,
-    handleClick: propTypes.fun,
+    label: propTypes.string.isRequired,
+    handleClick: propTypes.func,
     isLight: propTypes.bool,
     isWidthFull: propTypes.bool
   }

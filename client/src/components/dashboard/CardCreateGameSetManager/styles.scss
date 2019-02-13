@@ -1,0 +1,44 @@
+@import "~global-scss/index.scss";
+
+:local(.component) {
+
+  .tight-content {
+   margin-left: 2em;
+   margin-right: 2em;
+
+   .scores-raw {
+     width: 100%;
+     display: flex;
+     justify-content: space-around;
+
+     .score {
+        @include text-small();
+     }
+   }
+
+   .input {
+      width: 100%;
+      box-sizing: border-box;
+      padding-top: 7px;
+      padding-bottom: 7px;
+      padding-right: 2px;
+      padding-left: 4px;
+      font-size: 1em;
+      border-radius: 2px;
+      border: $color-grey-light 1px solid;
+      @include text-small();
+
+      &::placeholder {
+        color: $color-grey-light;
+      }
+    }
+
+    .separator {
+      width: 10px;
+    }
+  }
+
+  .button-wrapper {
+    margin-top: $vertical-gutter-small;
+  }
+}

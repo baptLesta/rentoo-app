@@ -1,0 +1,23 @@
+@import "~global-scss/index.scss";
+
+:local(.component) {
+  
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .separator {
+      padding: 4px;
+      @include text-small();
+    }
+  }
+
+  .subtitle {
+    @include title-small();
+  }
+
+  .button-wrapper {
+    margin-top: $vertical-gutter-small;
+  }
+}

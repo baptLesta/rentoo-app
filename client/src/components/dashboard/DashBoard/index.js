@@ -13,7 +13,7 @@ import Loader from '../../commun/Loader';
 
 const Dashboard = props => {
   const {
-    players, isLoading
+    players, isLoading, createPlayer
   } = props;
   let content;
 
@@ -30,7 +30,7 @@ const Dashboard = props => {
       <h1 className="title">Ping-pong league</h1>
       <PlayersTable players={players} />
       <div className="grid">
-        <CardCreatePlayer />
+        <CardCreatePlayer handleClick={createPlayer}/>
         <CardCreateGame />
         <CardResults />
       </div>
@@ -42,6 +42,8 @@ const Dashboard = props => {
 Dashboard.propTypes = {
   isLoading: PropTypes.bool,
   players: PropTypes.array,
+  createPlayers: PropTypes.func,
+  createGame: PropTypes.func
 };
 
 export default Dashboard;

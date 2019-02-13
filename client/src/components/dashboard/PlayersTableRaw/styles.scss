@@ -2,10 +2,14 @@
 
 :local(.component) {
   &:nth-child(even) {
-    background-color: rgba(80, 227, 194, 0.4);
+    background-color: $color-primary-light;
   }
   &:nth-child(odd) {
     background-color: white;
+  }
+  &.is-pending {
+    background-color: $color-accent;
+    color: $color-true-white;
   }
 
   .column {
