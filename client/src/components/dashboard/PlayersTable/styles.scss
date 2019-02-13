@@ -1,0 +1,35 @@
+@import "~global-scss/index.scss";
+
+:local(.component) {
+  @keyframes fadeIn {
+    from {
+      -webkit-transform: translateY(30px);
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    to {
+      -webkit-transform: translateY(0px);
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  .table-inner-ctn {
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 3em;
+    border-spacing: 0px;
+    background-color: white;
+
+    &.page-appear {
+      animation: fadeIn 0.2s forwards;
+    }
+  }
+
+  th {
+    text-align: left;
+    padding: 10px 20px;
+  }
+
+}

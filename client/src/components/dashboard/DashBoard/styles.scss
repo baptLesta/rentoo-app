@@ -1,0 +1,24 @@
+@import "~global-scss/index.scss";
+
+:local(.component) {
+  padding: 3em;
+
+  .title {
+    color: rgba(0,0,0,0.5);
+    font-weight: 800;
+    font-size: 3em;
+    margin-bottom: 0.5em;
+  }
+
+  .grid {
+    margin-top: $vertical-gutter;
+    margin-bottom: $vertical-gutter;
+    margin-left: -30px;
+    display: flex;
+
+    & > * {
+      width: calc(33.33% - 30px);
+      margin-left: 30px;
+    }
+  }
+}

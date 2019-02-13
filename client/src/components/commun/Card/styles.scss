@@ -1,0 +1,15 @@
+@import "../../../global-scss/index.scss";
+
+:local(.component) {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  width: 33.3%;
+
+  .title {
+    color: rgba(0,0,0,0.5);
+    font-weight: 800;
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+  }
+}

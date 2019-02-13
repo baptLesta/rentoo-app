@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getPlayers } from '../../actions';
 
 // Import custom components
-import Dashboard from '../../components/dashboard/Dashboard';
+import Dashboard from 'components/dashboard/DashBoard';
 
 class DashboardContainer extends Component {
 

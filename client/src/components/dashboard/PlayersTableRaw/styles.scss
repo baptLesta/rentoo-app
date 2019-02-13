@@ -1,0 +1,15 @@
+@import "~global-scss/index.scss";
+
+:local(.component) {
+  &:nth-child(even) {
+    background-color: rgba(80, 227, 194, 0.4);
+  }
+  &:nth-child(odd) {
+    background-color: white;
+  }
+
+  .column {
+    text-align: left;
+    padding: 10px 20px;
+  }
+}

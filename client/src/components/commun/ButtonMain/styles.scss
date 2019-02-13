@@ -1,0 +1,21 @@
+@import "~global-scss/index.scss";
+
+:local(.component) {
+  .button {
+    background-color: $color-accent;
+    color: $color-true-light;
+    font-weight: 700;
+    font-size: 1.1em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 2px;
+    border: none;
+
+    &.is-width-full {
+      width: 100%;
+    }
+    &.is-light {
+      background-color: $color-primary-light;
+    }
+  }
+}
