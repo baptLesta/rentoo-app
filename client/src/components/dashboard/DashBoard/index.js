@@ -5,21 +5,20 @@ import css from './styles.scss';
 // Import custom components
 import PlayersTable from '../PlayersTable';
 import CardCreateGame from '../CardCreateGame';
-import CardCreatePlayer from '../CardCreatePlayer';
+// import CardCreatePlayer from '../CardCreatePlayer';
 import CardResults from '../CardResults';
 
 const Dashboard = props => {
   const {
     players, isLoading, createPlayer, createGame, games, deleteGame, getGamesOfPlayer
   } = props;
-  let content;
 
   return (
     <div className={css.component}>
       <h1 className="title">Ping-pong league</h1>
       <PlayersTable players={players} />
       <div className="grid">
-        <CardCreatePlayer handleClick={createPlayer}/>
+        {/* <CardCreatePlayer handleClick={createPlayer}/> */}
         <CardCreateGame
           players={players}
           createGame={createGame}
@@ -31,7 +30,6 @@ const Dashboard = props => {
           players={players}
         />
       </div>
-      {/* {content} */}
     </div>
   );
 };

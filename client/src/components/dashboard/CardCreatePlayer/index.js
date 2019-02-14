@@ -5,13 +5,6 @@ import Card from 'components/commun/Card';
 import ButtonMain from 'components/commun/ButtonMain';
 
 class CardCreatePlayer extends Component {
-  static propTypes = {
-
-  }
-
-  static defaultProps = {
-
-  }
 
   state = {
     name: ''
