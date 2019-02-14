@@ -19,6 +19,7 @@
    .input {
       width: 100%;
       box-sizing: border-box;
+      margin-top: 10px;
       padding-top: 7px;
       padding-bottom: 7px;
       padding-right: 2px;
@@ -27,6 +28,7 @@
       border-radius: 2px;
       border: $color-grey-light 1px solid;
       @include text-small();
+      text-align: center;
 
       &::placeholder {
         color: $color-grey-light;

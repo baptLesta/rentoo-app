@@ -10,10 +10,11 @@ import CardCreatePlayer from '../CardCreatePlayer';
 import CardResults from '../CardResults';
 import Table from '../Table';
 import Loader from '../../commun/Loader';
+import { create } from 'domain';
 
 const Dashboard = props => {
   const {
-    players, isLoading, createPlayer
+    players, isLoading, createPlayer, createGame, games
   } = props;
   let content;
 
@@ -31,8 +32,14 @@ const Dashboard = props => {
       <PlayersTable players={players} />
       <div className="grid">
         <CardCreatePlayer handleClick={createPlayer}/>
-        <CardCreateGame />
-        <CardResults />
+        <CardCreateGame
+          players={players}
+          createGame={createGame}
+        />
+        <CardResults
+          games={games}
+          players={players}
+        />
       </div>
       {/* {content} */}
     </div>

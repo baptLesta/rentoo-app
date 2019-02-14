@@ -20,10 +20,12 @@ after((done) => {
 
 describe('## Games APIs', () => {
   const gameRecord = {
-    player1: '5c640ba286dfd8b7325ac1c4',
-    player2: '5c640b5e430b10b6d2af05c6',
+    player1: '5c6532441a1bc426dd45694c',
+    player2: '5c65324b1a1bc426dd45694d',
     sets: [[1, 2], [5, 3], [3, 5]]
   };
+
+  let game;
 
   describe('# POST /api/game', () => {
     it('should create a new game', (done) => {
@@ -32,6 +34,7 @@ describe('## Games APIs', () => {
         .send(gameRecord)
         .expect(httpStatus.CREATED)
         .then((res) => {
+          game = res.body.game;
           // it(res);
           done();
         })
@@ -47,6 +50,20 @@ describe('## Games APIs', () => {
         .then((res) => {
           expect(res.body.success).to.equal(true);
           expect(res.body.games).to.be.an('array');
+          done();
+        })
+        .catch(done);
+    });
+  });
+
+  describe('# DELETE /api/game/', () => {
+    it('should delete', (done) => {
+      request(app)
+        .delete(`/api/game/${game._id}`)
+        .expect(httpStatus.OK)
+        .then((res) => {
+          expect(res.body.success).to.equal(true);
+          expect(res.body.message).to.equal('Deleted game');
           done();
         })
         .catch(done);

@@ -14,11 +14,12 @@ class SelectBox extends React.Component {
   }
 
   render() {
-    const options = this.props.options;
+    const { options, placeholder } = this.props;
 
     return (
       <div className={css.component}>
         <Select
+          placeholder={placeholder}
           options={options}
           onChange={this.handleChange}
           isLoading={!options.length}

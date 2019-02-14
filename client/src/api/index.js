@@ -5,8 +5,11 @@ axios.defaults.baseURL = API_PATH;
 
 export default {
   getPlayers: () => axios.get('/player'),
-  createPlayer: (name) => axios.post('player',
+  createPlayer: (name) => axios.post('/player',
     { 'player': { 'name': name } }
-  )
-  // getDemographicDatas: (categorie) => axios.post('/demographic-data', { 'categorie': categorie })
+  ),
+  createGame: (game) => axios.post('/game', game),
+  removeGame: (game) => axios.delete('/game', game),
+  getLatestGames: () => axios.get('/game'),
+  getGamesOf: player => axios.get(`/game?player=${player}`)
 };

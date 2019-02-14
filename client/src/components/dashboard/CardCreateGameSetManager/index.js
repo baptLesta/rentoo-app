@@ -12,20 +12,26 @@ class CardCreateGameSetManager extends Component {
   constructor(props) {
     super();
 
+    this.$inputs = [];
     this.handleAddSet = this.handleAddSet.bind(this);
   }
 
   handleAddSet() {
-    const scorePlayer1 = this.refs.inputPlayer1.value;
-    const scorePlayer2 = this.refs.inputPlayer2.value;
-    const newSet = [scorePlayer1, scorePlayer2];
+    const newSetScore = this.$inputs.map(input => input.value);
 
     this.setState((prevState) => ({
-      sets: [...prevState.sets, newSet]
+      sets: [...prevState.sets, newSetScore]
     }));
   }
 
+  reset() {
+    this.$inputs.forEach(input => {
+      input.value = '';
+    })
+  }
+
   render() {
+
     return (
       <div className={css.component}>
         <div className="tight-content">
@@ -40,11 +46,11 @@ class CardCreateGameSetManager extends Component {
           <div className="row">
             <input className="input" type="number" name="player1"
               placeholder="e.g 5"
-              ref="inputPlayer1" />
+              ref={el => this.$inputs[0] = el} />
             <span className="separator"></span>
             <input className="input" type="number" name="player2"
               placeholder="e.g 7"
-              ref="inputPlayer2" />
+              ref={el => this.$inputs[1] = el} />
           </div>
         </div>
         <div className="button-wrapper">

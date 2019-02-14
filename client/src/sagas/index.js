@@ -2,16 +2,15 @@ import { put, takeLatest, all } from 'redux-saga/effects';
 import api from '../api';
 import * as types from '../constants/actionType';
 
-function* fetchDemographicData(action) {
+function* savePlayer(action) {
+  const user = yield api.createPlayer(action.name)
+    .then( (response) => response.data.player);
 
-  const [demographicData, undisplayNumber] = yield api.getDemographicDatas(action.categorie)
-    .then( (response) => [response.data.datas, response.data.othersValueLength]);
-
-  yield put({ type: types.RECEIVE_DEMOGRAPHIC_DATA, demographicData, undisplayNumber });
+  yield put({ type: types.RECEIVE_CREATED_USER, user });
 }
 
 function* actionWatcher() {
-  yield takeLatest('SET_SELECTED_CATEGORIE', fetchDemographicData);
+  yield takeLatest(types.CREATE_PLAYER, savePlayer);
 }
 
 export default function* rootSaga() {

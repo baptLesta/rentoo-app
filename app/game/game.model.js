@@ -5,12 +5,12 @@ const mongoose = require('mongoose');
  */
 const GameSchema = new mongoose.Schema({
   player1: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'player'
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Player'
   },
   player2: {
     type: mongoose.Schema.ObjectId,
-    ref: 'player'
+    ref: 'Player'
   },
   finalScore: [Number],
   sets: [[Number]],
@@ -22,6 +22,10 @@ const GameSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'player'
   },
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 /**
@@ -40,11 +44,18 @@ GameSchema.method({
  */
 GameSchema.statics = {
   /**
-   * List Data
+   * List Games in descending order of 'createdAt' timestamp.
+   * @param {number} skip - Number of Games to be skipped.
+   * @param {number} limit - Limit number of Games to be returned.
    * @returns {Promise<Game[]>}
    */
-  list() {
+  list({ skip = 0, limit = 5 } = {}) {
     return this.find()
+      .sort({ createdAt: -1 })
+      .skip(+skip)
+      .limit(+limit)
+      .populate('player1')
+      .populate('player2')
       .exec();
   }
 };

@@ -13,6 +13,19 @@ export const getPlayers = () => dispatch => {
     });
 };
 
+const receiveGames = games => ({
+  type: types.RECEIVE_GAMES,
+  games
+});
+
+export const getLatestGames = () => dispatch => {
+  api.getLatestGames()
+    .then( (response) => {
+      console.log({response});
+      dispatch(receiveGames(response.data.games));
+    });
+};
+
 const createPlayer = name => ({
   type: types.CREATE_PLAYER,
   name
@@ -22,9 +35,15 @@ export const boundCreatePlayer = name => dispatch => {
   dispatch(createPlayer(name));
 }
 
-export const createGame = () => dispatch => {
-  api.createGame()
+const createGame = game => ({
+  type: types.CREATE_GAME,
+  game
+});
+
+export const boundCreateGame = game => dispatch => {
+  api.createGame(game)
     .then( (response) => {
-      dispatch(receivePlayers(response.data.players));
+      console.log({response});
+      dispatch(createGame(response.data.game));
     });
 };

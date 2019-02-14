@@ -7,9 +7,10 @@ const gameService = require('./game.service');
  * Load game and append to req.
  */
 function load(req, res, next, id) {
-  Game.get(id)
+  Game.findById(id)
     .then((game) => {
       req.game = game; // eslint-disable-line no-param-reassign
+
       return next();
     })
     .catch(e => next(e));
@@ -39,9 +40,11 @@ async function create(req, res) {
 
   [err, game] = await to(Game.create(gameRecordWithFinalResults));
   if (err) return sendError(res, err, 422);
+  [err, game] = await to(Game.findById(game).populate('player1').populate('player2'));
 
   [err, winner] = await to(Player.findById(gameRecordWithFinalResults.winner));
   if (err) return sendError(res, err, 422);
+
   await winner.addWin();
 
   [err, looser] = await to(Player.findById(gameRecordWithFinalResults.looser));
@@ -80,7 +83,7 @@ async function list(req, res) {
   const { limit = 50, skip = 0 } = req.query;
   let games, err;
 
-  [err, games] = await to(Game.list({ limit, skip })); // eslint-disable-line prefer-const
+  [err, games] = await to(Game.list()); // eslint-disable-line prefer-const
   if (err) return sendError(res, err, 422);
 
   games = games.map(game => game.toWeb());
@@ -94,11 +97,13 @@ async function list(req, res) {
 async function remove(req, res) {
   let err;
   let game = req.game;
+  console.log('Ha ke coucouYAA');
+  console.log({game});
 
   [err, game] = await to(game.remove()); // eslint-disable-line prefer-const
   if (err) return sendError(res, 'error occured trying to delete the game');
 
-  return sendSuccess(res, { message: 'Deleted game' }, 204);
+  return sendSuccess(res, { message: 'Deleted game' }, 200);
 }
 
 module.exports = { load, get, create, update, list, remove };

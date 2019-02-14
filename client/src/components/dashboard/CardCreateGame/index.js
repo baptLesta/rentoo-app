@@ -16,13 +16,41 @@ class CardCreateGame extends Component {
   }
 
   state = {
-    sets: [],
     player1: null,
     player2: null,
   }
 
   constructor(props) {
     super();
+
+    this.handleCreateGame = this.handleCreateGame.bind(this);
+  }
+
+  get sets() {
+    return this.$setsManager.state.sets;
+  }
+
+  factoryHandleSetPlayer(playerNum) {
+    return function(playerSelectedId) {
+      const playerSelected = this.props.players.filter(player => player._id === playerSelectedId)[0];
+      this.setState({
+        [`player${playerNum}`]: playerSelected
+      });
+    }
+  }
+
+  handleCreateGame() {
+    const gameRecord = {
+      ...this.state,
+      sets: this.sets
+    };
+
+    this.props.createGame(gameRecord);
+    this.resetForm();
+  }
+
+  resetForm() {
+    this.$setsManager.reset();
   }
 
   render() {
@@ -37,14 +65,16 @@ class CardCreateGame extends Component {
           <div className="row">
             <SelectBox
               options={players}
+              handleChange={this.factoryHandleSetPlayer(1).bind(this)}
             />
             <span className="separator">VS</span>
             <SelectBox
               options={players}
+              handleChange={this.factoryHandleSetPlayer(2).bind(this)}
             />
           </div>
           <h2 className="subtitle">Score (max. of 5)</h2>
-          <CardCreateGameSetManager />
+          <CardCreateGameSetManager ref={el => this.$setsManager = el}/>
           <div className="button-wrapper">
             <ButtonMain
               label="Add Game"

@@ -24,6 +24,16 @@ export default function(state, action) {
         isLoading: false
       });
 
+    case types.RECEIVE_CREATED_USER:
+      return Object.assign({}, state, {
+        players: [
+          ...state.players.filter(player =>
+            !(player.creationIsPending === true && player.name === action.user.name)),
+          action.user
+        ],
+        isLoading: false
+      });
+
     default:
       return state;
   }
