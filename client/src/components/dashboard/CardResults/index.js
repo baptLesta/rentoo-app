@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 // import css from './styles.scss';
-import {} from 'prop-types';
 // import Card from '../../commun/Card';
 import SelectBox from '../../commun/SelectBox';
-import CardResultsRaw from '../CardResultsRaw';
+// import CardResultsRaw from '../CardResultsRaw';
 
 class CardResults extends React.Component {
   constructor(props) {
