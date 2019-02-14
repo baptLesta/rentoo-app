@@ -1,13 +1,13 @@
-# Technical test for Birdie
+# Technical test for Rentoo
 
-DEMO: https://birde-test-app.herokuapp.com
+
 
 ## Getting Started
 
 Clone the repo:
 ```sh
-git clone git@github.com:baptLesta/birdie-app.git
-cd birdie-app
+git clone git@github.com:baptLesta/rentoo-app.git
+cd rentoo-app
 ```
 
 Install yarn:

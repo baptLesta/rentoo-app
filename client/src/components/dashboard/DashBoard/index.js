@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import css from './styles.scss';
 
@@ -8,23 +7,12 @@ import PlayersTable from '../PlayersTable';
 import CardCreateGame from '../CardCreateGame';
 import CardCreatePlayer from '../CardCreatePlayer';
 import CardResults from '../CardResults';
-import Table from '../Table';
-import Loader from '../../commun/Loader';
-import { create } from 'domain';
 
 const Dashboard = props => {
   const {
     players, isLoading, createPlayer, createGame, games, deleteGame, getGamesOfPlayer
   } = props;
   let content;
-
-  if (isLoading) {
-    content = <Loader />;
-  } else {
-    content = <Table
-      data={players}
-    />;
-  }
 
   return (
     <div className={css.component}>
