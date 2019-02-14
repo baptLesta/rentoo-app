@@ -5,18 +5,6 @@ import {} from 'prop-types';
 import IconClose from '../../icon/IconClose';
 
 class CardResultsRaw extends Component {
-  static propTypes = {
-
-  }
-
-  static defaultProps = {
-
-  }
-
-  state = {
-
-  }
-
   constructor(props) {
     super(props);
 
