@@ -6,18 +6,6 @@ import SelectBox from '../../commun/SelectBox';
 import CardResultsRaw from '../CardResultsRaw';
 
 class CardResults extends Component {
-  static propTypes = {
-
-  }
-
-  static defaultProps = {
-
-  }
-
-  state = {
-
-  }
-
   constructor(props) {
     super();
 
@@ -29,7 +17,6 @@ class CardResults extends Component {
   }
 
   render() {
-    console.log(this.props);
     const players = this.props.players.map( (player) => ({
       value: player.id,
       label: player.name
