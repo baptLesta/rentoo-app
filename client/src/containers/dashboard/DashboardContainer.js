@@ -10,7 +10,7 @@ import {
 } from '../../actions';
 
 // Import custom components
-import Dashboard from 'components/dashboard/DashBoard';
+import Dashboard from '../../components/dashboard/DashBoard';
 
 class DashboardContainer extends Component {
 

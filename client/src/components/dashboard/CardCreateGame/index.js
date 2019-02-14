@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import css from './styles.scss';
 import propTypes from 'prop-types';
 import Card from '../../commun/Card';
-import ButtonMain from '../../commun/components/commun/ButtonMain';
-import SelectBox from '../../commun/components/commun/SelectBox';
+import ButtonMain from '../../commun/ButtonMain';
+import SelectBox from '../../commun/SelectBox';
 import CardCreateGameSetManager from '../CardCreateGameSetManager';
 
 class CardCreateGame extends Component {
