@@ -60,7 +60,7 @@ async function create(req, res) {
  * @property {string} req.body.description - The description of game.
  * @returns {game}
  */
-async function update(req, res, next) {
+async function update(req, res) {
   let err;
 
   let game = req.game;
@@ -96,9 +96,9 @@ async function list(req, res) {
  * @property {number} req.query.limit - Limit number of games to be returned.
  * @returns {Game[]}
  */
-async function listForPlayer(req, res, next) {
+async function listForPlayer(req, res) {
   const playerId = req.params.playerId;
-  console.log(req.params.playerId);
+
   const { limit = 5, skip = 0 } = req.query;
   let games, err;
 

@@ -1,7 +1,7 @@
 @import "~global-scss/index.scss";
 
-:local(.component) {
-  
+// :local(.component) {
+
   .input {
     display: block;
     width: 100%;
@@ -22,4 +22,4 @@
       color: $color-grey-light;
     }
   }
-}
+// }
