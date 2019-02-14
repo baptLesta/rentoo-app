@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import css from './styles.scss';
 import {} from 'prop-types';
-import Card from 'components/commun/Card';
-import ButtonMain from 'components/commun/ButtonMain';
+import Card from '../../commun/Card';
+import ButtonMain from '../../commun/ButtonMain';
 
 class CardCreatePlayer extends Component {
 

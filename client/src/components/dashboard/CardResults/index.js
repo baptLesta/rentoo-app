@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import css from './styles.scss';
 import {} from 'prop-types';
 import Card from '../../commun/Card';
-import SelectBox from 'components/commun/SelectBox';
+import SelectBox from '../../commun/SelectBox';
 import CardResultsRaw from '../CardResultsRaw';
 
 class CardResults extends Component {

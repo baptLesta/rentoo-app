@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import css from './styles.scss';
 import {} from 'prop-types';
 
-import ButtonMain from 'components/commun/ButtonMain';
+import ButtonMain from '../../commun/ButtonMain';
 
 class CardCreateGameSetManager extends Component {
   state = {
