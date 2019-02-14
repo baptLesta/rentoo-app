@@ -4,9 +4,9 @@ import css from './styles.scss';
 
 // Import custom components
 import PlayersTable from '../PlayersTable';
-import CardCreateGame from '../CardCreateGame';
+// import CardCreateGame from '../CardCreateGame';
 // import CardCreatePlayer from '../CardCreatePlayer';
-import CardResults from '../CardResults';
+// import CardResults from '../CardResults';
 
 const Dashboard = props => {
   const {
@@ -19,16 +19,16 @@ const Dashboard = props => {
       <PlayersTable players={players} />
       <div className="grid">
         {/* <CardCreatePlayer handleClick={createPlayer}/> */}
-        <CardCreateGame
+        {/* <CardCreateGame
           players={players}
           createGame={createGame}
-        />
-        <CardResults
+        /> */}
+        {/* <CardResults
           getGamesOfPlayer={getGamesOfPlayer}
           games={games}
           deleteGame={deleteGame}
           players={players}
-        />
+        /> */}
       </div>
     </div>
   );
