@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import css from './styles.scss';
 import {} from 'prop-types';
-import Card from '../../commun/Card';
+// import Card from '../../commun/Card';
 import SelectBox from '../../commun/SelectBox';
 import CardResultsRaw from '../CardResultsRaw';
 
@@ -25,20 +25,20 @@ class CardResults extends Component {
     const { games, deleteGame } = this.props;
 
     return (
-      <Card title="Latest Games">
-        <div>
-          <SelectBox
-            placeholder="All players"
-            options={players}
-            handleChange={this.handleChange}
-          />
+      // <Card title="Latest Games">
+      <div>
+        <SelectBox
+          placeholder="All players"
+          options={players}
+          handleChange={this.handleChange}
+        />
 
-          {games.map( (game, index) => (
-            <CardResultsRaw key={index} game={game} deleteGame={deleteGame}/>
-          ))}
+        {/* {games.map( (game, index) => (
+          <CardResultsRaw key={index} game={game} deleteGame={deleteGame}/>
+        ))} */}
 
-        </div>
-      </Card>
+      </div>
+      // </Card>
     );
   }
 }
