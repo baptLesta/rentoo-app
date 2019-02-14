@@ -10,7 +10,7 @@ class CardCreateGameSetManager extends Component {
   }
 
   constructor(props) {
-    super();
+    super(props);
 
     this.$inputs = [];
     this.handleAddSet = this.handleAddSet.bind(this);

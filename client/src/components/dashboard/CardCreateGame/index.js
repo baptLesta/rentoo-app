@@ -21,7 +21,7 @@ class CardCreateGame extends Component {
   }
 
   constructor(props) {
-    super();
+    super(props);
 
     this.handleCreateGame = this.handleCreateGame.bind(this);
   }

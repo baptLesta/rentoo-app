@@ -11,7 +11,7 @@ class CardCreatePlayer extends Component {
   }
 
   constructor(props) {
-    super();
+    super(props);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);

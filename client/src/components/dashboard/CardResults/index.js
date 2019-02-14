@@ -5,9 +5,9 @@ import {} from 'prop-types';
 import SelectBox from '../../commun/SelectBox';
 import CardResultsRaw from '../CardResultsRaw';
 
-class CardResults extends Component {
+class CardResults extends React.Component {
   constructor(props) {
-    super();
+    super(props);
 
     this.handleChange = this.handleChange.bind(this);
   }
@@ -42,4 +42,4 @@ class CardResults extends Component {
     );
   }
 }
-export default CardResults
+export default CardResults;
