@@ -16,6 +16,10 @@ export default function(state, action) {
       return Object.assign({}, state, {
         games: [...state.games, action.game]
       });
+    case types.DELETE_GAME:
+      return Object.assign({}, state, {
+        games: state.games.filter(game => game.id !== action.game.id)
+      });
 
     case types.RECEIVE_GAMES:
       return Object.assign({}, state, {

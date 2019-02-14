@@ -19,6 +19,12 @@ class CardResultsRaw extends Component {
 
   constructor(props) {
     super();
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.props.deleteGame(this.props.game);
   }
 
   render() {
@@ -28,7 +34,7 @@ class CardResultsRaw extends Component {
       <div className={css.component}>
         <span className="final-score">
           <b>{game.player1.name } </b>
-          {game.finalScore[0]} - {game.finalScore[1]} 
+          {game.finalScore[0]} - {game.finalScore[1]}
           <b> {game.player2.name}</b>
         </span>
         <div className="sets-ctn">
@@ -38,7 +44,7 @@ class CardResultsRaw extends Component {
         </div>
 
         <div className="button-ctn">
-          <button className="button">
+          <button className="button" onClick={this.handleClick}>
             <i><IconClose /></i>
           </button>
         </div>

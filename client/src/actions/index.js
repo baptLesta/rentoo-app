@@ -21,7 +21,13 @@ const receiveGames = games => ({
 export const getLatestGames = () => dispatch => {
   api.getLatestGames()
     .then( (response) => {
-      console.log({response});
+      dispatch(receiveGames(response.data.games));
+    });
+};
+
+export const getGamesOfPlayer = playerId => dispatch => {
+  api.getGamesOfPlayer(playerId)
+    .then( (response) => {
       dispatch(receiveGames(response.data.games));
     });
 };
@@ -43,7 +49,20 @@ const createGame = game => ({
 export const boundCreateGame = game => dispatch => {
   api.createGame(game)
     .then( (response) => {
-      console.log({response});
       dispatch(createGame(response.data.game));
     });
 };
+
+const deleteGame = game => ({
+  type: types.DELETE_GAME,
+  game
+});
+
+export const boundDeleteGame = game => dispatch => {
+  api.deleteGame(game)
+    .then( (response) => {
+      dispatch(deleteGame(game));
+    });
+};
+
+

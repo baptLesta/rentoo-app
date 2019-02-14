@@ -80,10 +80,31 @@ async function update(req, res, next) {
  * @returns {Game[]}
  */
 async function list(req, res) {
-  const { limit = 50, skip = 0 } = req.query;
+  const { limit = 5, skip = 0 } = req.query;
   let games, err;
 
-  [err, games] = await to(Game.list()); // eslint-disable-line prefer-const
+  [err, games] = await to(Game.list(limit, skip)); // eslint-disable-line prefer-const
+  if (err) return sendError(res, err, 422);
+
+  games = games.map(game => game.toWeb());
+  return sendSuccess(res, { games });
+}
+
+/**
+ * Get movie list.
+ * @property {number} req.query.skip - Number of games to be skipped.
+ * @property {number} req.query.limit - Limit number of games to be returned.
+ * @returns {Game[]}
+ */
+async function listForPlayer(req, res, next) {
+  const playerId = req.params.playerId;
+  console.log(req.params.playerId);
+  const { limit = 5, skip = 0 } = req.query;
+  let games, err;
+
+  [err, games] = await to(
+    Game.listForPlayer(playerId, limit, skip)
+  ); // eslint-disable-line prefer-const
   if (err) return sendError(res, err, 422);
 
   games = games.map(game => game.toWeb());
@@ -97,8 +118,6 @@ async function list(req, res) {
 async function remove(req, res) {
   let err;
   let game = req.game;
-  console.log('Ha ke coucouYAA');
-  console.log({game});
 
   [err, game] = await to(game.remove()); // eslint-disable-line prefer-const
   if (err) return sendError(res, 'error occured trying to delete the game');
@@ -106,4 +125,4 @@ async function remove(req, res) {
   return sendSuccess(res, { message: 'Deleted game' }, 200);
 }
 
-module.exports = { load, get, create, update, list, remove };
+module.exports = { load, get, create, update, list, listForPlayer, remove };

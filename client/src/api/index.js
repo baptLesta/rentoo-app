@@ -8,8 +8,8 @@ export default {
   createPlayer: (name) => axios.post('/player',
     { 'player': { 'name': name } }
   ),
-  createGame: (game) => axios.post('/game', game),
-  removeGame: (game) => axios.delete('/game', game),
+  createGame: game => axios.post('/game', game),
+  deleteGame: game => axios.delete(`game/${game.id}`),
   getLatestGames: () => axios.get('/game'),
-  getGamesOf: player => axios.get(`/game?player=${player}`)
+  getGamesOfPlayer: playerId => axios.get(`/game/player/${playerId}`)
 };

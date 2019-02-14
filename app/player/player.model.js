@@ -38,13 +38,13 @@ PlayerSchema.method({
   addWin() {
     this.points = this.points + 2;
     this.win++;
-    this.winningPercent = this.win / this.lost * 100;
+    this.winningPercent = this.win / (this.win + this.lost) * 100;
 
     this.save();
   },
   addLoose() {
     this.loose++;
-    this.winningPercent = this.win / this.lost * 100;
+    this.winningPercent = this.win / (this.win + this.lost) * 100;
 
     this.save();
   }

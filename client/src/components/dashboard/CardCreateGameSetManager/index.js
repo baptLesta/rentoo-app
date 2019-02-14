@@ -31,6 +31,7 @@ class CardCreateGameSetManager extends Component {
   }
 
   render() {
+    const MAX_SET_PER_GAME = 5;
 
     return (
       <div className={css.component}>
@@ -43,23 +44,29 @@ class CardCreateGameSetManager extends Component {
               </span>
             ))
           }
-          <div className="row">
-            <input className="input" type="number" name="player1"
-              placeholder="e.g 5"
-              ref={el => this.$inputs[0] = el} />
-            <span className="separator"></span>
-            <input className="input" type="number" name="player2"
-              placeholder="e.g 7"
-              ref={el => this.$inputs[1] = el} />
+        </div>
+        {this.state.sets.length <= MAX_SET_PER_GAME &&
+          <div>
+            <div className="tight-content">
+              <div className="row">
+                <input className="input" type="number" name="player1"
+                  placeholder="e.g 5"
+                  ref={el => this.$inputs[0] = el} />
+                <span className="separator"></span>
+                <input className="input" type="number" name="player2"
+                  placeholder="e.g 7"
+                  ref={el => this.$inputs[1] = el} />
+              </div>
+            </div>
+            <div className="button-wrapper">
+              <ButtonMain
+                isLight
+                label="Add Set"
+                handleClick={this.handleAddSet}
+              />
+            </div>
           </div>
-        </div>
-        <div className="button-wrapper">
-          <ButtonMain
-            isLight
-            label="Add Set"
-            handleClick={this.handleAddSet}
-          />
-        </div>
+        }
       </div>
     );
   }

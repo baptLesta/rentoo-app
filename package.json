@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "node index.js",
+    "build": "cd client && yarn install && npm run build",
     "start:debug": "cross-env DEBUG=express-mongoose-es6-rest-api:* yarn start",
     "lint": "esw *.js server config --color",
     "lint:watch": "yarn lint -- --watch",

@@ -20,6 +20,14 @@ router
   /** DELETE /api/game/:gameId - Remove game */
   .delete(gameCtrl.remove);
 
+
+router
+  .route('/player/:playerId')
+
+  /** GET /api/game/player/:playerId - Get game */
+  .get(gameCtrl.listForPlayer);
+
+
 /** Load game when API with userId route parameter is hit */
 router.param('gameId', gameCtrl.load);
 

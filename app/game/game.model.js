@@ -57,6 +57,22 @@ GameSchema.statics = {
       .populate('player1')
       .populate('player2')
       .exec();
+  },
+
+  /**
+   * List Games in descending order of 'createdAt' timestamp.
+   * @param {number} skip - Number of Games to be skipped.
+   * @param {number} limit - Limit number of Games to be returned.
+   * @returns {Promise<Game[]>}
+   */
+  listForPlayer(playerId, { skip = 0, limit = 5 } = {}) {
+    return this.find({ $or: [{ player1: playerId }, { player2: playerId }] })
+      .sort({ createdAt: -1 })
+      .skip(+skip)
+      .limit(+limit)
+      .populate('player1')
+      .populate('player2')
+      .exec();
   }
 };
 

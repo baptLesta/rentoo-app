@@ -14,7 +14,7 @@ import { create } from 'domain';
 
 const Dashboard = props => {
   const {
-    players, isLoading, createPlayer, createGame, games
+    players, isLoading, createPlayer, createGame, games, deleteGame, getGamesOfPlayer
   } = props;
   let content;
 
@@ -37,7 +37,9 @@ const Dashboard = props => {
           createGame={createGame}
         />
         <CardResults
+          getGamesOfPlayer={getGamesOfPlayer}
           games={games}
+          deleteGame={deleteGame}
           players={players}
         />
       </div>

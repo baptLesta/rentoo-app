@@ -20,7 +20,7 @@ const PlayersTableRaw = props => {
       <td className='column'>{props.name}</td>
       <td className='column'>{props.win}</td>
       <td className='column'>{props.lost}</td>
-      <td className='column'>{props.winPercent}</td>
+      <td className='column'>{!!props.winningPercent && `${props.winningPercent} %`}</td>
       <td className='column'>{props.points}</td>
     </tr>
   }

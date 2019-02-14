@@ -24,17 +24,18 @@ class CardResults extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange() {
-    
+  handleChange(value) {
+    this.props.getGamesOfPlayer(value);
   }
 
   render() {
+    console.log(this.props);
     const players = this.props.players.map( (player) => ({
       value: player.id,
       label: player.name
     }));
 
-    const games = this.props.games;
+    const { games, deleteGame } = this.props;
 
     return (
       <Card title="Latest Games">
@@ -46,7 +47,7 @@ class CardResults extends Component {
           />
 
           {games.map( (game, index) => (
-            <CardResultsRaw key={index} game={game} />
+            <CardResultsRaw key={index} game={game} deleteGame={deleteGame}/>
           ))}
 
         </div>

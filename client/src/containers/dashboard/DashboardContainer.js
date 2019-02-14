@@ -4,6 +4,8 @@ import {
   getPlayers,
   boundCreatePlayer as createPlayer,
   boundCreateGame as createGame,
+  boundDeleteGame as deleteGame,
+  getGamesOfPlayer,
   getLatestGames
 } from '../../actions';
 
@@ -21,7 +23,7 @@ class DashboardContainer extends Component {
 
   render() {
     const {
-      players, games, isLoading, createPlayer, createGame, getLatestGames
+      players, games, isLoading, createPlayer, createGame, getLatestGames, deleteGame, getGamesOfPlayer
     } = this.props;
 
     return (
@@ -30,8 +32,10 @@ class DashboardContainer extends Component {
         isLoading={isLoading}
         createPlayer={createPlayer}
         createGame={createGame}
+        deleteGame={deleteGame}
         getLatestGames={getLatestGames}
         games={games}
+        getGamesOfPlayer={getGamesOfPlayer}
       />
     );
   }
@@ -48,5 +52,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getPlayers, createPlayer, createGame, getLatestGames }
+  { getPlayers, createPlayer, createGame, getLatestGames, deleteGame, getGamesOfPlayer }
 )(DashboardContainer);
