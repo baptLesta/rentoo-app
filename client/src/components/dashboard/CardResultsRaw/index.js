@@ -40,4 +40,4 @@ class CardResultsRaw extends Component {
     );
   }
 }
-export default CardResultsRaw
+export default CardResultsRaw;

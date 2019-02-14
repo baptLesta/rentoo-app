@@ -36,14 +36,14 @@ class CardCreateGameSetManager extends Component {
     return (
       <div className={css.component}>
         <div className="tight-content">
-          {
+          {/* {
             this.state.sets.map( (set, index) => (
               <span className="scores-raw" key={index}>
                 <span className="score"> {set[0]} </span>
                 <span className="score"> {set[1]} </span>
               </span>
             ))
-          }
+          } */}
         </div>
         {this.state.sets.length <= MAX_SET_PER_GAME &&
           <div>
@@ -71,4 +71,4 @@ class CardCreateGameSetManager extends Component {
     );
   }
 }
-export default CardCreateGameSetManager
+export default CardCreateGameSetManager;

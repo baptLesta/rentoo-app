@@ -40,4 +40,4 @@ class CardCreatePlayer extends Component {
   }
 }
 
-export default CardCreatePlayer
+export default CardCreatePlayer;

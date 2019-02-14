@@ -86,4 +86,4 @@ class CardCreateGame extends Component {
     );
   }
 }
-export default CardCreateGame
+export default CardCreateGame;
