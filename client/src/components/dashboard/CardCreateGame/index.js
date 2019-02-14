@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import Card from '../../commun/Card';
 import ButtonMain from '../../commun/ButtonMain';
 import SelectBox from '../../commun/SelectBox';
-// import CardCreateGameSetManager from '../CardCreateGameSetManager';
+import CardCreateGameSetManager from '../CardCreateGameSetManager';
 
 class CardCreateGame extends Component {
   static propTypes = {
@@ -74,7 +74,7 @@ class CardCreateGame extends Component {
             />
           </div>
           <h2 className="subtitle">Score (max. of 5)</h2>
-          {/* <CardCreateGameSetManager ref={el => this.$setsManager = el}/> */}
+          <CardCreateGameSetManager ref={el => this.$setsManager = el}/>
           <div className="button-wrapper">
             <ButtonMain
               label="Add Game"

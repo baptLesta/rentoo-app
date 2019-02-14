@@ -1,5 +1,4 @@
 import React from 'react';
-import css from './styles.scss';
 import Card from '../../commun/Card';
 import SelectBox from '../../commun/SelectBox';
 import CardResultsRaw from '../CardResultsRaw';
