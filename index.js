@@ -11,7 +11,8 @@ const debug = require('debug')('express-mongoose-es6-rest-api:index');
 mongoose.Promise = Promise;
 
 // connect to mongo db
-const mongoUri = config.mongo.host;
+// const mongoUri = config.mongo.host;
+const mongoUri = `mongodb://baptLesta:${config.dbPassword}@cluster0-shard-00-00-k3k0d.mongodb.net:27017,cluster0-shard-00-01-k3k0d.mongodb.net:27017,cluster0-shard-00-02-k3k0d.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true`;
 mongoose.connect(mongoUri, { server: { socketOptions: { keepAlive: 1 } } });
 mongoose.connection.on('error', () => {
   throw new Error(`unable to connect to database: ${mongoUri}`);

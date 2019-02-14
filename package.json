@@ -1,8 +1,8 @@
 {
-  "name": "birdie-test-app",
+  "name": "rentoo-app",
   "version": "5.0.0",
-  "description": "Test technique for Birdie.",
-  "author": "Kunal Kapadia <kunalkapadia12@gmail.com>",
+  "description": "Test technique for Rentoo.",
+  "author": "Baptiste Lestavel <baptistelestavel2@gmail.com>",
   "main": "index.js",
   "private": false,
   "engines": {
@@ -26,13 +26,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:KunalKapadia/express-mongoose-es6-rest-api.git"
+    "url": "https://github.com/baptLesta/rentoo-app"
   },
   "keywords": [
     "express",
     "node",
     "node.js",
-    "mysql",
+    "Mongoose",
     "es6",
     "mocha",
     "istanbul",
@@ -40,7 +40,8 @@
     "API",
     "boilerplate",
     "react",
-    "redux"
+    "redux",
+    "react saga"
   ],
   "dependencies": {
     "await-to-js": "^2.1.1",

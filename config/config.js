@@ -39,6 +39,7 @@ const config = {
   jwtSecret: envVars.JWT_SECRET,
   jwtEncryption: envVars.JWT_ENCRYPTION,
   jwtExpiration: envVars.JWT_EXPIRATION,
+  dbPassword: envVars.DB_PASSWORD,
   mongo: {
     host: envVars.MONGO_HOST,
     port: envVars.MONGO_PORT

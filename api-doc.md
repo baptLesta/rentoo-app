@@ -4,7 +4,7 @@
 
 Get all categories of demographic datas.
 
-**URL** : `/api/demographic-data/`
+**URL** : `/api/player/`
 
 **Method** : `GET`
 
@@ -17,12 +17,12 @@ Get all categories of demographic datas.
 
 **Code** : `200 OK`
 
-**Content example** : Response will be an array of string with all categories
+**Content example** : Response will be an array of all the player
 
 ```json
 {
     "success": "true",
-    "categories": ["blabla", "blabla2"]
+    "players": ["blabla", "blabla2"]
 }
 ```
 
