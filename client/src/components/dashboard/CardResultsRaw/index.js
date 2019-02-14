@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import css from './styles.scss';
-import {} from 'prop-types';
 
 import IconClose from '../../icon/IconClose';
 

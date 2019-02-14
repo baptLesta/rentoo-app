@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import css from './styles.scss';
-import {} from 'prop-types';
 import Card from '../../commun/Card';
 import ButtonMain from '../../commun/ButtonMain';
 

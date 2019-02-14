@@ -1,8 +1,8 @@
 import React from 'react';
-// import css from './styles.scss';
-// import Card from '../../commun/Card';
+import css from './styles.scss';
+import Card from '../../commun/Card';
 import SelectBox from '../../commun/SelectBox';
-// import CardResultsRaw from '../CardResultsRaw';
+import CardResultsRaw from '../CardResultsRaw';
 
 class CardResults extends React.Component {
   constructor(props) {
@@ -24,20 +24,20 @@ class CardResults extends React.Component {
     const { games, deleteGame } = this.props;
 
     return (
-      // <Card title="Latest Games">
-      <div>
-        <SelectBox
-          placeholder="All players"
-          options={players}
-          handleChange={this.handleChange}
-        />
+      <Card title="Latest Games">
+        <div>
+          <SelectBox
+            placeholder="All players"
+            options={players}
+            handleChange={this.handleChange}
+          />
 
-        {/* {games.map( (game, index) => (
-          <CardResultsRaw key={index} game={game} deleteGame={deleteGame}/>
-        ))} */}
+          {games.map( (game, index) => (
+            <CardResultsRaw key={index} game={game} deleteGame={deleteGame}/>
+          ))}
 
-      </div>
-      // </Card>
+        </div>
+      </Card>
     );
   }
 }
