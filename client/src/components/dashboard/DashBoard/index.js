@@ -6,7 +6,7 @@ import css from './styles.scss';
 import PlayersTable from '../PlayersTable';
 // import CardCreateGame from '../CardCreateGame';
 // import CardCreatePlayer from '../CardCreatePlayer';
-// import CardResults from '../CardResults';
+import CardResults from '../CardResults';
 
 const Dashboard = props => {
   const {
@@ -23,12 +23,12 @@ const Dashboard = props => {
           players={players}
           createGame={createGame}
         /> */}
-        {/* <CardResults
+        <CardResults
           getGamesOfPlayer={getGamesOfPlayer}
           games={games}
           deleteGame={deleteGame}
           players={players}
-        /> */}
+        />
       </div>
     </div>
   );
