@@ -19,6 +19,8 @@ after((done) => {
 });
 
 describe('## Player APIs', () => {
+  let player;
+
   const playerRecord = {
     player: {
       name: 'test'
@@ -32,6 +34,7 @@ describe('## Player APIs', () => {
         .send(playerRecord)
         .expect(httpStatus.CREATED)
         .then((res) => {
+          player = res.body.player;
           done();
         })
         .catch(done);
@@ -46,6 +49,20 @@ describe('## Player APIs', () => {
         .then((res) => {
           expect(res.body.success).to.equal(true);
           expect(res.body.players).to.be.an('array');
+          done();
+        })
+        .catch(done);
+    });
+  });
+
+  describe('# DELETE /api/player/', () => {
+    it('should delete', (done) => {
+      request(app)
+        .delete(`/api/player/${player.id}`)
+        .expect(httpStatus.OK)
+        .then((res) => {
+          expect(res.body.success).to.equal(true);
+          expect(res.body.message).to.equal('Deleted player');
           done();
         })
         .catch(done);

@@ -43,7 +43,7 @@ PlayerSchema.method({
     this.save();
   },
   addLoose() {
-    this.loose++;
+    this.lost++;
     this.winningPercent = this.win / (this.win + this.lost) * 100;
 
     this.save();

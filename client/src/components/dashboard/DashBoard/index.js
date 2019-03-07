@@ -15,7 +15,7 @@ const Dashboard = props => {
 
   return (
     <div className={css.component}>
-      <h1 className="title">Ping-pong league</h1>
+      <h1 className="title">Freighthub Ping-pong league</h1>
       <PlayersTable players={players} />
       <div className="grid">
         <CardCreatePlayer handleClick={createPlayer}/>

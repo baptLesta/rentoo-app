@@ -1,5 +1,4 @@
-# Technical test for Rentoo
-
+# Ping Pong App
 
 
 ## Getting Started

@@ -44,7 +44,6 @@ async function create(req, res) {
 
   [err, winner] = await to(Player.findById(gameRecordWithFinalResults.winner));
   if (err) return sendError(res, err, 422);
-
   await winner.addWin();
 
   [err, looser] = await to(Player.findById(gameRecordWithFinalResults.looser));

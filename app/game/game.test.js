@@ -7,35 +7,73 @@ const app = require('../../index');
 
 chai.config.includeStack = true;
 
+let idPlayerRecord1, idPlayerRecord2;
+
 /**
  * root level hooks
  */
-after((done) => {
+
+after(async () => {
+  const removePlayer = async (idPlayer) => {
+    await request(app)
+      .delete(`/api/player/${idPlayer}`);
+  };
+
+  const removePlayersPromise = [idPlayerRecord1, idPlayerRecord2].map(removePlayer);
+  await Promise.all(removePlayersPromise);
+
+
   // required because https://github.com/Automattic/mongoose/issues/1251#issuecomment-65793092
   mongoose.models = {};
   mongoose.modelSchemas = {};
   mongoose.connection.close();
-  done();
+});
+
+before(async () => {
+  const playerRecord1 = {
+    player: {
+      name: 'mockPlayer1'
+    }
+  };
+  const playerRecord2 = {
+    player: {
+      name: 'mockPlayer1'
+    }
+  };
+
+  function createPlayer(playerRecord) {
+    return new Promise((resolve2) => {
+      request(app)
+        .post('/api/player')
+        .send(playerRecord)
+        .expect(httpStatus.CREATED)
+        .then((res) => {
+          resolve2(res.body.player.id);
+        });
+    });
+  }
+
+  const playersPromise = [playerRecord1, playerRecord2].map(createPlayer);
+  [idPlayerRecord1, idPlayerRecord2] = await Promise.all(playersPromise);
 });
 
 describe('## Games APIs', () => {
-  const gameRecord = {
-    player1: '5c6532441a1bc426dd45694c',
-    player2: '5c65324b1a1bc426dd45694d',
-    sets: [[1, 2], [5, 3], [3, 5]]
-  };
-
   let game;
 
   describe('# POST /api/game', () => {
     it('should create a new game', (done) => {
+      const gameRecord = {
+        player1: idPlayerRecord1,
+        player2: idPlayerRecord2,
+        sets: [[1, 2], [5, 3], [3, 5]]
+      };
+
       request(app)
         .post('/api/game')
         .send(gameRecord)
         .expect(httpStatus.CREATED)
         .then((res) => {
           game = res.body.game;
-          // it(res);
           done();
         })
         .catch(done);

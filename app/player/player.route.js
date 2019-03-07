@@ -5,22 +5,22 @@ const router = express.Router(); // eslint-disable-line new-cap
 
 router
   .route('/')
-  /** GET /api/players - Get list of players */
+  /** GET /api/player - Get list of players */
   .get(playerCtrl.list)
 
-  /** POST /api/players - Create new player */
+  /** POST /api/player - Create new player */
   .post(playerCtrl.create);
 
 router
-  .route('/:player_id')
+  .route('/:playerId')
 
-  /** GET /api/players/:movieId - Get movie */
-  .get(playerCtrl.get);
+  /** GET /api/player/:movieId - Get player */
+  .get(playerCtrl.get)
 
-router
-  .route('/:player_id')
+  /** DELETE /api/player/:movieId - Delete playerr */
+  .delete(playerCtrl.remove);
 
-  /** GET /api/players/:movieId - Get movie */
-  .get(playerCtrl.get);
+/** Load game when API with userId route parameter is hit */
+router.param('playerId', playerCtrl.load);
 
 module.exports = router;

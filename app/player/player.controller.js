@@ -5,14 +5,14 @@ const { to, sendError, sendSuccess } = require('../services/util.service');
  * Load player and append to req.
  */
 function load(req, res, next, id) {
-  Player.get(id)
+  Player.findById(id)
     .then((player) => {
       req.player = player; // eslint-disable-line no-param-reassign
+
       return next();
     })
     .catch(e => next(e));
 }
-
 /**
  * Get player
  * @returns {Player}
@@ -44,7 +44,7 @@ async function create(req, res) {
  * @property {string} req.body.description - The description of Player.
  * @returns {Player}
  */
-async function update(req, res, next) {
+async function update(req, res) {
   let err;
 
   let player = req.Player;
@@ -75,4 +75,18 @@ async function list(req, res) {
   return sendSuccess(res, { players });
 }
 
-module.exports = { load, get, create, update, list };
+/**
+ * Delete player.
+ * @returns {Playerr}
+ */
+async function remove(req, res) {
+  let err;
+  let player = req.player;
+
+  [err, player] = await to(player.remove()); // eslint-disable-line prefer-const
+  if (err) return sendError(res, 'error occured trying to delete the player');
+
+  return sendSuccess(res, { message: 'Deleted player' }, 200);
+}
+
+module.exports = { load, get, create, update, list, remove };
