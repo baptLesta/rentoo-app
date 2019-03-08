@@ -1,7 +1,7 @@
-const express = require('express');
-const playerCtrl = require('./player.controller');
+import {Router} from 'express';
+import playerCtrl from './player.controller';
 
-const router = express.Router(); // eslint-disable-line new-cap
+const router = Router(); // eslint-disable-line new-cap
 
 router
   .route('/')
@@ -23,4 +23,4 @@ router
 /** Load game when API with userId route parameter is hit */
 router.param('playerId', playerCtrl.load);
 
-module.exports = router;
+export default router;

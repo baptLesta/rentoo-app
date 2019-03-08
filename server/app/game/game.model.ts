@@ -1,25 +1,25 @@
-const mongoose = require('mongoose');
+import {Schema, model} from 'mongoose';
 
 /**
  * Game Schema
  */
-const GameSchema = new mongoose.Schema({
+const GameSchema = new Schema({
   player1: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'Player'
   },
   player2: {
-    type: mongoose.Schema.ObjectId,
+    type: Schema.ObjectId,
     ref: 'Player'
   },
   finalScore: [Number],
   sets: [[Number]],
   winner: {
-    type: mongoose.Schema.ObjectId,
+    type: Schema.ObjectId,
     ref: 'player'
   },
   looser: {
-    type: mongoose.Schema.ObjectId,
+    type: Schema.ObjectId,
     ref: 'player'
   },
   date: {
@@ -79,4 +79,4 @@ GameSchema.statics = {
 /**
  * @typedef Game
  */
-module.exports = mongoose.model('Game', GameSchema);
+export default model('Game', GameSchema);

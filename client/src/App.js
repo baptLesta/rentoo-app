@@ -8,7 +8,7 @@ class App extends Component {
   componentDidMount() {
     fetch('/api/player/')
       .then(res => res.json())
-      .then(res => console.log(res));
+      .then(res => console.log('Don\'t look at my code 😈' ));
   }
 
   render() {

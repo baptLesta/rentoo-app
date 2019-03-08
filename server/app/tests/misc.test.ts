@@ -1,10 +1,9 @@
-const request = require('supertest');
-const httpStatus = require('http-status-codes');
-const chai = require('chai'); // eslint-disable-line import/newline-after-import
-const expect = chai.expect;
-const app = require('../../index');
+import * as request from 'supertest';
+import * as httpStatus from 'http-status-codes';
+import { config, expect } from 'chai'; // eslint-disable-line import/newline-after-import
+import app from '../../index';
 
-chai.config.includeStack = true;
+config.includeStack = true;
 
 describe('## Misc', () => {
   describe('# GET /api/health-check', () => {

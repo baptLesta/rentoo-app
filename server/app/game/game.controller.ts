@@ -1,7 +1,7 @@
-const Game = require('./game.model');
-const Player = require('../player/player.model');
-const { to, sendError, sendSuccess } = require('../services/util.service');
-const gameService = require('./game.service');
+import Game from './game.model';
+import Player from '../player/player.model';
+import { to, sendError, sendSuccess } from '../services/util.service';
+import gameService from './game.service';
 
 /**
  * Load game and append to req.
@@ -124,4 +124,4 @@ async function remove(req, res) {
   return sendSuccess(res, { message: 'Deleted game' }, 200);
 }
 
-module.exports = { load, get, create, update, list, listForPlayer, remove };
+export default { load, get, create, update, list, listForPlayer, remove };

@@ -17,6 +17,5 @@ function addFinalResults(game) {
   return gameWithFinalResults;
 }
 
-module.exports = {
-  addFinalResults
-};
+export default { addFinalResults };
+

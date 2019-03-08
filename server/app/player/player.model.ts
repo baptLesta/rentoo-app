@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+import {Schema, model} from 'mongoose';
 
 /**
  * Player Schema
  */
-const PlayerSchema = new mongoose.Schema({
+const PlayerSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -67,4 +67,4 @@ PlayerSchema.statics = {
 /**
  * @typedef Player
  */
-module.exports = mongoose.model('Player', PlayerSchema);
+export default model('Player', PlayerSchema);

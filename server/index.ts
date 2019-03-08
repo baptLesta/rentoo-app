@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
-const util = require('util');
+import * as mongoose from 'mongoose';
+import * as util from 'util';
 
 // config should be imported before importing any other file
-const config = require('./config/config');
-const app = require('./config/express');
+import config from './config/config';
+import app from './config/express';
 
-const debug = require('debug')('express-mongoose-es6-rest-api:index');
+import debug from 'debug';
 
 // plugin bluebird promise in mongoose
 mongoose.Promise = Promise;
@@ -44,4 +44,4 @@ if (!module.parent) {
   });
 }
 
-module.exports = app;
+export default app;

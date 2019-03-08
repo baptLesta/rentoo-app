@@ -1,5 +1,5 @@
-const Player = require('./player.model');
-const { to, sendError, sendSuccess } = require('../services/util.service');
+import Player from './player.model';
+import { to, sendError, sendSuccess } from '../services/util.service';
 
 /**
  * Load player and append to req.
@@ -89,4 +89,4 @@ async function remove(req, res) {
   return sendSuccess(res, { message: 'Deleted player' }, 200);
 }
 
-module.exports = { load, get, create, update, list, remove };
+export default { load, get, create, update, list, remove };

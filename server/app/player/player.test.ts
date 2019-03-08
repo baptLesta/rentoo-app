@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
-const request = require('supertest-as-promised');
-const httpStatus = require('http-status');
-const chai = require('chai'); // eslint-disable-line import/newline-after-import
-const expect = chai.expect;
-const app = require('../../index');
+import * as mongoose from 'mongoose';
+import * as request from 'supertest';
+import { expect, config } from 'chai'; // eslint-disable-line import/newli-after-impot
+import * as httpStatus from 'http-status-codes';
 
-chai.config.includeStack = true;
+import app from'../../index';
+
+config.includeStack = true;
 
 /**
  * root level hooks

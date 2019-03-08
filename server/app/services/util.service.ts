@@ -1,14 +1,15 @@
-const { to } = require('await-to-js');
-const pe = require('parse-error');
+import { to as toFromLibrary } from 'await-to-js';
+import pe from 'parse-error';
+import {HTTP_STATUS} from 'http-status-codes';
 
-module.exports.to = async (promise) => {
-  const [err, res] = await to(promise);
+async function to(promise) {
+  const [err, res] = await toFromLibrary(promise);
   if (err) return [pe(err)];
 
   return [null, res];
 };
 
-function sendError(res, err, code) { // Error Web Response
+function sendError(res, err, code?: HTTP_STATUS) { // Error Web Response
   if (typeof err === 'object' && typeof err.message !== 'undefined') {
     err = err.message; // eslint-disable-line
   }
@@ -18,7 +19,7 @@ function sendError(res, err, code) { // Error Web Response
   return res.json({ success: false, error: err });
 }
 
-function sendSuccess(res, data, code) { // Success Web Response
+function sendSuccess(res, data, code?: HTTP_STATUS) { // Success Web Response
   let sendData = { success: true };
 
   if (typeof data === 'object') {
@@ -38,4 +39,4 @@ function throwError(errorMsg, log) {
   throw new Error(errorMsg);
 }
 
-module.exports = { to, sendError, sendSuccess, throwError };
+export { to, sendError, sendSuccess, throwError };

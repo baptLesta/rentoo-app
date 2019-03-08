@@ -1,10 +1,11 @@
-const express = require('express');
-const gameCtrl = require('./game.controller');
+import { Router } from 'express';
+import gameCtrl from './game.controller';
 
-const router = express.Router(); // eslint-disable-line new-cap
+const router = Router(); // eslint-disable-line new-cap
 
 router
   .route('/')
+
   /** GET /api/game - Get list of games */
   .get(gameCtrl.list)
 
@@ -29,6 +30,7 @@ router
 
 
 /** Load game when API with userId route parameter is hit */
-router.param('gameId', gameCtrl.load);
+router
+  .param('gameId', gameCtrl.load);
 
-module.exports = router;
+export default router;

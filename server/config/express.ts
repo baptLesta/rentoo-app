@@ -1,19 +1,19 @@
-const express = require('express');
-const logger = require('morgan');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const compress = require('compression');
-const methodOverride = require('method-override');
-const cors = require('cors');
-const httpStatus = require('http-status-codes');
-const expressWinston = require('express-winston');
-const expressValidation = require('express-validation');
-const helmet = require('helmet');
-const winstonInstance = require('./winston');
-const routes = require('../index.route');
-const config = require('./config');
-const APIError = require('../app/helpers/APIError');
-const path = require('path');
+import express = require('express');
+import logger = require('morgan');
+import bodyParser = require('body-parser');
+import cookieParser = require('cookie-parser');
+import compress = require('compression');
+import * as methodOverride from 'method-override';
+import * as cors from 'cors';
+import * as httpStatus from 'http-status-codes';
+import * as expressWinston from 'express-winston';
+import expressValidation from 'express-validation';
+import * as helmet from 'helmet';
+import winstonInstance from './winston';
+import routes from '../index.route';
+import config from './config';
+import APIError from '../app/helpers/APIError';
+import * as path from 'path';
 
 const app = express();
 
@@ -50,10 +50,10 @@ if (config.env === 'development') {
 // mount all routes on /api path
 app.use('/api', routes);
 
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '../../../client/build')));
 
 app.get('*', (req, res) => {
-  res.send(express.static(path.join(__dirname, '../client/build/index.html')));
+  res.send(express.static(path.join(__dirname, '../../../client/build/index.html')));
 });
 
 // if error is not an instanceOf APIError, convert it.
@@ -91,4 +91,4 @@ app.use((err, req, res, next) => // eslint-disable-line no-unused-vars
   })
 );
 
-module.exports = app;
+export default app;

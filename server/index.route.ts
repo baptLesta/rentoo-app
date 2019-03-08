@@ -1,10 +1,10 @@
-const express = require('express');
-const playerRoutes = require('./app/player/player.route');
-const gameRoutes = require('./app/game/game.route');
-const { sendError } = require('./app/services/util.service');
-const httpStatus = require('http-status-codes');
+import { Router } from 'express';
+import playerRoutes from './app/player/player.route';
+import gameRoutes from './app/game/game.route';
+import { sendError } from './app/services/util.service';
+import * as httpStatus from 'http-status-codes'
 
-const router = express.Router(); // eslint-disable-line new-cap
+const router = Router(); // eslint-disable-line new-cp
 
 /** GET /health-check - Check service health */
 router.get('/health-check', (req, res) =>
@@ -21,4 +21,4 @@ router.use((req, res) => { // eslint-disable-line
   if (!req.route) return sendError(res, 'The path of the url match no routes', httpStatus.NOT_FOUND);
 });
 
-module.exports = router;
+export default router;
